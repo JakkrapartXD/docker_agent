@@ -130,3 +130,4 @@ dist
 .pnp.*
 
 mssql_data/
+mongo-data/
