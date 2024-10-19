@@ -7,3 +7,5 @@ db.createUser({
   pwd: 'WB1qazxsw2',
   roles: [{ role: 'readWrite', db: 'wallboarddb' }]
 });
+
+db.log.insertOne({ capped: true, size: 5242880, max: 5000 });
