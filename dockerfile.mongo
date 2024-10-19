@@ -1,0 +1,11 @@
+# Dockerfile for MongoDB
+FROM mongo:latest
+# Set working directory
+WORKDIR /home/mongo_scripts
+# Copy setup script to container
+COPY ./mongo_scripts/run_mongo_setup.sh /home/mongo_scripts/
+COPY ./mongo_scripts/setup_wallboarddb.js /home/mongo_scripts/
+# Make the script executable
+RUN chmod +x /home/mongo_scripts/run_mongo_setup.sh
+# Run MongoDB setup script after the container starts
+CMD ["/bin/bash", "/home/mongo_scripts/run_mongo_setup.sh"]

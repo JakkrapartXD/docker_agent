@@ -1,0 +1,15 @@
+# Dockerfile for MSSQL
+FROM mcr.microsoft.com/mssql/server:2019-latest
+# Set working directory
+WORKDIR /home/mssql_scripts
+# Copy setup script to container
+COPY ./mssql_scripts/import_table.sh /home/mssql_scripts/
+# Make the script executable
+RUN chmod +x /home/mssql_scripts/import_table.sh
+# Set environment variables for MSSQL
+ENV ACCEPT_EULA=Y
+ENV MSSQL_SA_PASSWORD=P@ssw0rd
+# Expose the port that MSSQL listens on
+EXPOSE 1433
+# Run SQL Server and then execute the script
+CMD /bin/bash -c "/opt/mssql/bin/sqlservr & sleep 30 && /home/mssql_scripts/import_table.sh"
