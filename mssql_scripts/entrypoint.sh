@@ -1,0 +1,1 @@
+/home/mssql_scripts/import_table.sh & /opt/mssql/bin/sqlservr

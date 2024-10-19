@@ -1,10 +1,12 @@
 #!/bin/bash
 
+sleep 90s
+
 SERVER="localhost"
 USER="sa"
 PASSWORD="P@ssw0rd"
 DATABASE="team4_web_labDB"
-SQL_SCRIPT="/path/to/SQL_SCRIPT"
+SQL_SCRIPT="/home/mssql_scripts/dbo.OnlineAgents.Table.sql"
 
 /opt/mssql-tools/bin/sqlcmd -S $SERVER -U $USER -P $PASSWORD -Q "CREATE DATABASE $DATABASE;"
 
