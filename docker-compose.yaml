@@ -1,15 +1,15 @@
 services:
-  # mssql:
-  #   image: mcr.microsoft.com/mssql/server:2017-latest
-  #   container_name: mssql_agent
-  #   ports:
-  #     - "1433:1433"
-  #   environment:
-  #     - ACCEPT_EULA=Y
-  #     - MSSQL_SA_PASSWORD=P@ssw0rd
-  #   volumes:
-  #     - ./mssql_data:/var/opt/mssql
-  #     - ./mssql_scripts:/home/mssql_scripts
+  mssql:
+    image: mcr.microsoft.com/mssql/server:2017-latest
+    container_name: mssql_agent
+    ports:
+      - "1433:1433"
+    environment:
+      - ACCEPT_EULA=Y
+      - MSSQL_SA_PASSWORD=P@ssw0rd
+    volumes:
+      - ./mssql_data:/var/opt/mssql
+      - ./mssql_scripts:/home/mssql_scripts
   mongo:
     image: mongo
     container_name: mongodb_wallboard
@@ -21,4 +21,4 @@ services:
       - "27017:27017"
     volumes:
       - ./mongo-data:/data/db
-      - ./mongo_scripts/init-mongo.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
+      - ./mongo_scripts:/home/mongo_scripts

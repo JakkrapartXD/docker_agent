@@ -1,9 +1,9 @@
 #!/bin/bash
 
-MONGO_HOST="localhost"
-MONGO_PORT="27017"
+MONGO_USER="root"
+MONGO_PASS="P@ssw0rd"
 
-mongo --host "$MONGO_HOST" --port "$MONGO_PORT" < setup_wallboarddb.js
+mongosh -u "$MONGO_USER" -p "$MONGO_PASS" --authenticationDatabase admin /home/mongo_scripts/init-mongo.js
 
 if [ $? -eq 0 ]; then
   echo "MongoDB setup successfully completed."

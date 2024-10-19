@@ -1,9 +1,9 @@
 #!/bin/bash
 
 SERVER="localhost"
-USER="username"
-PASSWORD="password"
-DATABASE="database_name"
+USER="sa"
+PASSWORD="P@ssw0rd"
+DATABASE="team4_web_labDB"
 SQL_SCRIPT="/path/to/SQL_SCRIPT"
 
 /opt/mssql-tools/bin/sqlcmd -S $SERVER -U $USER -P $PASSWORD -Q "CREATE DATABASE $DATABASE;"
