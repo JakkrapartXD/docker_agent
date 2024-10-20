@@ -40,6 +40,19 @@ services:
       - mongo
     volumes:
       - ./serverkey:/app/serverkey
+  endpoint-api:
+    build:
+      context: .
+      dockerfile: dockerfile.endpoint-api
+    container_name: endpoint-api
+    ports:
+      - "8400:8400"
+      - "8401:8401"
+    restart: always
+    depends_on:
+      - mssql
+    volumes:
+      - ./serverkey:/app/serverkey
   react-admin:
     build:
       context: .

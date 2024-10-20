@@ -1,0 +1,7 @@
+FROM node:20
+WORKDIR /app
+RUN git clone https://github.com/JakkrapartXD/ENGSE207-endpoint-api-docker.git /app
+RUN npm install
+COPY ./serverkey /app
+EXPOSE 8400 8401
+CMD ["npm", "run", "start"]
