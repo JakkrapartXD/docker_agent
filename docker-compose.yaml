@@ -28,3 +28,25 @@ services:
     volumes:
       - ./mongo-data:/data/db
       - ./mongo_scripts:/home/mongo_scripts
+  parse-server-api:
+    build:
+      context: .
+      dockerfile: dockerfile.Parse-server-api
+    container_name: parse-server-api
+    ports:
+      - "8405:8405"
+    restart: always
+    depends_on:
+      - mongo
+    volumes:
+      - ./serverkey:/app/serverkey
+  react-admin:
+    build:
+      context: .
+      dockerfile: dockerfile.react-admin
+    container_name: react-admin-app
+    ports:
+      - "3000:80"
+    restart: always
+    depends_on:
+      - parse-server-api
