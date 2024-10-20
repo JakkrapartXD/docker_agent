@@ -131,3 +131,5 @@ dist
 
 mssql_data/
 mongo-data/
+server.crt
+server.key
